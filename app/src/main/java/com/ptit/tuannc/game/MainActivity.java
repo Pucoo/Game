@@ -87,16 +87,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         rd = random();
         initText();
-        creatButton();
-        creatImage();
+        createButton();
+        createImage();
         createButtonPick();
     }
 
     @SuppressLint("ResourceType")
-    public void creatButtonChoose() {
+    public void createButtonChoose() {
         btnChoose = new Button(this);
         layout_button = findViewById(R.id.layout_buton);
-        btnChoose.setLayoutParams(new LinearLayout.LayoutParams(450, 150));
+        btnChoose.setLayoutParams(new LinearLayout.LayoutParams(250, 100));
         btnChoose.setBackgroundResource(R.drawable.next);
         btnChoose.setOnClickListener(this);
         btnChoose.setId(100);
@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         txt_ketQua = findViewById(R.id.txt_ketQua);
     }
 
-    public void creatImage() {
+    public void createImage() {
         layout_2 = findViewById(R.id.layout_2);
         ImageView[] iv = new ImageView[QUESTIONS.length];
         iv[rd] = new ImageView(this);
@@ -127,12 +127,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         layout_2.addView(iv[rd]);
     }
 
-    public void creatButton() {
+    public void createButton() {
         layout_3 = findViewById(R.id.layout_3);
         btnKq = new Button[DAP_AN[rd].length()];
         for (int i = 0; i < DAP_AN[rd].length(); i++) {
             Button btn = new Button(this);
-            btn.setLayoutParams(new LinearLayout.LayoutParams(135, 150));
+            btn.setLayoutParams(new LinearLayout.LayoutParams(85, 85));
             btn.setId(i);
             btn.setBackgroundResource(R.drawable.button_xam);
             layout_3.addView(btn);
@@ -167,7 +167,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ArrayList<Integer> arrSo = new ArrayList<>();
         for (int i = 0; i < 8; i++) {
             Button btn = new Button(this);
-            btn.setLayoutParams(new LinearLayout.LayoutParams(135, 150));
+            btn.setLayoutParams(new LinearLayout.LayoutParams(91, 110));
             btn.setBackgroundResource(R.drawable.tile_hover);
             btn.setOnClickListener(this);
             while (btn.getText() == "") {
@@ -182,7 +182,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         for (int i = 0; i < 8; i++) {
             Button btn = new Button(this);
-            btn.setLayoutParams(new LinearLayout.LayoutParams(135, 150));
+            btn.setLayoutParams(new LinearLayout.LayoutParams(91, 110));
             btn.setBackgroundResource(R.drawable.tile_hover);
             btn.setOnClickListener(this);
             while (btn.getText() == "") {
@@ -206,7 +206,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     btnKq[i].setBackgroundResource(R.drawable.tile_true);
                 }
                 txt_ketQua.setText("Bạn đã trả lời đúng !!!");
-                creatButtonChoose();
+                createButtonChoose();
                 btnChoose.setText("NEXT");
                 layout_button.setVisibility(View.VISIBLE);
                 switch (v.getId()) {
@@ -220,8 +220,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         layout_button.removeAllViews();
                         rd = random();
                         createButtonPick();
-                        creatImage();
-                        creatButton();
+                        createImage();
+                        createButton();
                         txt_ketQua.setText("");
                         ketQua = "";
                         dem = 0;
@@ -234,7 +234,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     btnKq[i].setBackgroundResource(R.drawable.tile_false);
                 }
                 txt_ketQua.setText("Bạn đã trả lời sai !!!");
-                creatButtonChoose();
+                createButtonChoose();
                 btnChoose.setText("AGAIN");
                 layout_button.setVisibility(View.VISIBLE);
                 switch (v.getId()) {
@@ -247,8 +247,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         layout_2.removeAllViews();
                         layout_button.removeAllViews();
                         createButtonPick();
-                        creatImage();
-                        creatButton();
+                        createImage();
+                        createButton();
                         txt_ketQua.setText("");
                         ketQua = "";
                         dem = 0;
